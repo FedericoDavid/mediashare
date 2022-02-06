@@ -7,16 +7,14 @@ import { client } from '../services/api/loginAPIClient';
 import Pins from './Pins';
 import { userQuery } from '../utils/useUserQuery';
 import mediaShareLogo from '../assets/logo.png';
+import { fetchUser } from '../utils/fetchUser';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState(null);
-  const scrollRef = useRef(null);
 
-  const userInfo =
-    localStorage.getItem('user') !== undefined
-      ? JSON.parse(localStorage.getItem('user'))
-      : localStorage.clear();
+  const scrollRef = useRef(null);
+  const userInfo = fetchUser();
 
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
@@ -24,7 +22,7 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setUser(data[0]);
     });
-  }, [userInfo]);
+  }, [userInfo?.googleId]);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
