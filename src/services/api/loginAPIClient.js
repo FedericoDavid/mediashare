@@ -1,6 +1,7 @@
 import sanityClient from '@sanity/client';
 import ImageUrlBuilder from '@sanity/image-url';
 
+//cambiar nombre al archivo por alguno generico
 export const client = sanityClient({
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
   dataset: 'production',
