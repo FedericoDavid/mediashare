@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+
 import mediaShareVideo from '../assets/share.mp4';
 import mediaShareLogo from '../assets/logowhite.png';
 import { client } from '../services/api/loginAPIClient';

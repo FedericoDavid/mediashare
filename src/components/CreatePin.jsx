@@ -4,8 +4,8 @@ import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 import { client } from '../services/api/loginAPIClient';
-import Spinner from './Spinner';
 import { categories } from '../utils/useUserQuery';
+import Spinner from './Spinner';
 
 const CreatePin = ({ user }) => {
   const [title, setTitle] = useState('');
