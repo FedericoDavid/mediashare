@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BsExclamationDiamondFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
 import { client } from '../services/api/loginAPIClient';
 import { feedQuery, searchQuery } from '../utils/useUserQuery';
@@ -29,11 +30,17 @@ const Feed = () => {
     }
   }, [categoryId]);
 
-  return isLoading ? (
-    <Spinner message='We are adding new ideas to your feed!' />
-  ) : (
-    <div>{pins && <MasonryLayout pins={pins} />}</div>
-  );
+  if (isLoading) return <Spinner message='We are adding new ideas to your feed!' />;
+
+  if (!pins?.length)
+    return (
+      <div className='flex flex-col justify-center items-center w-full h-full'>
+        <BsExclamationDiamondFill fontSize={32} color='red' />
+        <h2 className='mt-5 text-2xl'>No pins found</h2>
+      </div>
+    );
+
+  return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };
 
 export default Feed;

@@ -1,21 +1,13 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { RiHomeFill } from 'react-icons/ri';
+import { AiFillHome } from 'react-icons/ai';
 import { IoIosArrowForward } from 'react-icons/io';
 
 import { isNotActiveStyle, isActiveStyle } from '../utils/constants';
+import { categories } from '../utils/useUserQuery';
 import mediaShareLogo from '../assets/logo.png';
 
 const Sidebar = ({ user, closeToggle }) => {
-  const categories = [
-    { name: 'Animals' },
-    { name: 'Wallpapers' },
-    { name: 'Photography' },
-    { name: 'Cars' },
-    { name: 'Gaming' },
-    { name: 'Other' },
-  ];
-
   return (
     <div className='flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar'>
       <div className='flex flex-col'>
@@ -28,17 +20,18 @@ const Sidebar = ({ user, closeToggle }) => {
             className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
             onClick={closeToggle}
           >
-            <RiHomeFill /> Home
+            <AiFillHome /> Home
           </NavLink>
           <h3 className='mt-2 px-5 text-base 2xl:text-xl'>Discover categories</h3>
-          {categories.slice(0, categories.length - 1).map((cat) => (
+          {categories.slice(0, categories.length - 1).map((c) => (
             <NavLink
-              to={`/category/${cat.name}`}
-              key={cat.name}
+              to={`/category/${c.name}`}
+              key={c.name}
               className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
               onClick={closeToggle}
             >
-              {cat.name}
+              <img src={c.image} className='w-8 h-8 rounded-full shadow-sm' alt='category' />
+              {c.name}
             </NavLink>
           ))}
         </div>

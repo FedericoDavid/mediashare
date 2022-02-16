@@ -158,7 +158,7 @@ const PinDetail = ({ user }) => {
           </div>
         </div>
       )}
-      {pins?.length > 0 ? (
+      {pins?.length ? (
         <>
           <h2 className='text-center font-bold text-2xl mt-8 mb-4'>More like this</h2>
           <MasonryLayout pins={pins} />
