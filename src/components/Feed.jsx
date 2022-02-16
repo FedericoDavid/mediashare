@@ -18,19 +18,19 @@ const Feed = () => {
     if (categoryId) {
       const query = searchQuery(categoryId);
 
-      client.fetch(query).then((data) => {
-        setPins(data);
+      client.fetch(query).then((res) => {
+        setPins(res);
         setIsLoading(false);
       });
     } else {
-      client.fetch(feedQuery).then((data) => {
-        setPins(data);
+      client.fetch(feedQuery).then((res) => {
+        setPins(res);
         setIsLoading(false);
       });
     }
   }, [categoryId]);
 
-  if (isLoading) return <Spinner message='We are adding new ideas to your feed!' />;
+  if (isLoading) return <Spinner message={`We are adding ${categoryId ?? 'new'} ideas to your feed!`} />;
 
   if (!pins?.length)
     return (

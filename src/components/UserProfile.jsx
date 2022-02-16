@@ -21,18 +21,18 @@ const UserProfile = () => {
   useEffect(() => {
     const query = userQuery(userId);
 
-    client.fetch(query).then((data) => setUser(data[0]));
+    client.fetch(query).then((res) => setUser(res[0]));
   }, [userId]);
 
   useEffect(() => {
     if (text === 'Created') {
       const createdPinsQuery = userCreatedPinsQuery(userId);
 
-      client.fetch(createdPinsQuery).then((data) => setPins(data));
+      client.fetch(createdPinsQuery).then((res) => setPins(res));
     } else {
       const savedPinsQuery = userSavedPinsQuery(userId);
 
-      client.fetch(savedPinsQuery).then((data) => setPins(data));
+      client.fetch(savedPinsQuery).then((res) => setPins(res));
     }
   }, [text, userId]);
 
