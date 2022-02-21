@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Loader from 'react-loader-spinner';
 
-import { client, urlFor } from '../services/api/loginAPIClient';
+import { client, urlFor } from '../services/api/getAPIClient';
 import { pinDetailMorePinQuery, pinDetailQuery } from '../utils/useUserQuery';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';

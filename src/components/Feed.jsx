@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BsExclamationDiamondFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
-import { client } from '../services/api/loginAPIClient';
+import { client } from '../services/api/getAPIClient';
 import { feedQuery, searchQuery } from '../utils/useUserQuery';
 
 import MasonryLayout from './MasonryLayout';

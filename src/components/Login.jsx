@@ -5,7 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 import mediaShareVideo from '../assets/share.mp4';
 import mediaShareLogo from '../assets/logowhite.png';
-import { client } from '../services/api/loginAPIClient';
+import { client } from '../services/api/getAPIClient';
 
 const Login = () => {
   const navigate = useNavigate();

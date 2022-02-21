@@ -3,7 +3,7 @@ import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
-import { client } from '../services/api/loginAPIClient';
+import { client } from '../services/api/getAPIClient';
 import { categories } from '../utils/useUserQuery';
 import Spinner from './Spinner';
 

@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/useUserQuery';
-import { client } from '../services/api/loginAPIClient';
+import { client } from '../services/api/getAPIClient';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 import { randomImage, activeBtnStyles, notActiveBtnStyles } from '../utils/constants';

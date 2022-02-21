@@ -6,7 +6,7 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 import Loader from 'react-loader-spinner';
 
-import { client, urlFor } from '../services/api/loginAPIClient';
+import { client, urlFor } from '../services/api/getAPIClient';
 import { fetchUser } from '../utils/fetchUser';
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {

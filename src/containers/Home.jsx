@@ -4,11 +4,11 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Sidebar, UserProfile } from '../components';
-import { client } from '../services/api/loginAPIClient';
-import Pins from './Pins';
+import { client } from '../services/api/getAPIClient';
 import { userQuery } from '../utils/useUserQuery';
-import mediaShareLogo from '../assets/logo.png';
 import { fetchUser } from '../utils/fetchUser';
+import Pins from './Pins';
+import mediaShareLogo from '../assets/logo.png';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
