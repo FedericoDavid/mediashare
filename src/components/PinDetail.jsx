@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { MdDownloadForOffline } from 'react-icons/md';
 import { Link, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,7 +17,7 @@ const PinDetail = ({ user }) => {
 
   const { pinId } = useParams();
 
-  const getPinDetails = () => {
+  const getPinDetails = useCallback(() => {
     let query = pinDetailQuery(pinId);
 
     if (query) {
@@ -31,7 +31,7 @@ const PinDetail = ({ user }) => {
         }
       });
     }
-  };
+  }, [pinId]);
 
   const onAddComment = () => {
     if (comment) {
@@ -61,7 +61,7 @@ const PinDetail = ({ user }) => {
 
   useEffect(() => {
     getPinDetails();
-  }, [pinId]);
+  }, [pinId, getPinDetails]);
 
   if (!pinDetail) return <Spinner message='Loading pin...' />;
 
