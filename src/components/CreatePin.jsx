@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +19,7 @@ const CreatePin = ({ user }) => {
   const [wrongImageType, setWrongImageType] = useState(false);
 
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const uploadImage = (e) => {
     const { type, name } = e.target.files[0];
@@ -81,7 +83,7 @@ const CreatePin = ({ user }) => {
     <div className='flex flex-col justify-center items-center mt-5 lg:h-4/5'>
       {fields && (
         <p className='text-red-500 mb-5 text-xl transition-all duration-150 ease-in'>
-          Please fill in all the fields
+          {t('pleaseFillAllTheFields')}
         </p>
       )}
       <div className='flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5 w-full'>
@@ -96,9 +98,9 @@ const CreatePin = ({ user }) => {
                     <p className='font-bold text-2xl'>
                       <AiOutlineCloudUpload />
                     </p>
-                    <p className='text-lg'>Click to upload</p>
+                    <p className='text-lg'>{t('clickToUpload')}</p>
                   </div>
-                  <p className='mt-32 text-gray-400'>Use high-quality JPG, SVG, PNG, GIF less than 20 MB</p>
+                  <p className='mt-32 text-gray-400'>{t('useHighQuality')}</p>
                 </div>
                 <input type='file' name='upload-image' onChange={uploadImage} className='w-0 h-0' />
               </label>
@@ -172,7 +174,7 @@ const CreatePin = ({ user }) => {
                 onClick={onSavePin}
                 className='bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none'
               >
-                Save Pin
+                {t('savePin')}
               </button>
             </div>
           </div>
