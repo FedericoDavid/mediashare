@@ -24,7 +24,8 @@ const Home = () => {
       setUser(res[0]);
       console.log('debuggin res', res);
     });
-  }, [userInfo?.googleId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
