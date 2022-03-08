@@ -22,10 +22,8 @@ const Home = () => {
 
     client.fetch(query).then((res) => {
       setUser(res[0]);
-      console.log('debuggin res', res);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
